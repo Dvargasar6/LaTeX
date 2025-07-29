@@ -1,0 +1,109 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0.0.82}
+\definecolor{backcolor}{rgb}{0.95,0.95,0.95}
+
+\lstdefinestyle{python_style}{
+backgroundcolor = \color{backcolor},
+commentstyle = \color{codegreen},
+keywordstyle = \color{magenta},
+numberstyle = \tiny \color{codegray},
+stringstyle = \color{codepurple},
+basicstyle = \ttfamily \footnotesize,
+breaklines = true,
+captionpos = b
+}
+
+\lstdefinestyle{python_style}{
+  language=Python,
+  backgroundcolor=\color{backcolor},
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{magenta}\bfseries,
+  stringstyle=\color{codepurple},
+  commentstyle=\color{codegreen}\itshape,
+  identifierstyle=\color{black},
+  showstringspaces=false,
+  frame=single,
+  breaklines=true,
+  tabsize=4,
+  numbers=none,
+  captionpos=b
+}
+
+
+\lstdefinestyle{java_style}{
+    language=Java,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue}\bfseries,
+    stringstyle=\color{orange},
+    commentstyle=\color{gray}\itshape,
+    backgroundcolor=\color{white},
+    frame=single,
+    rulecolor=\color{gray},
+    tabsize=4,
+    showspaces=false,
+    showstringspaces=false,
+    breaklines=true,
+    captionpos=b
+}
+
+\title{CODES IN \LaTeX}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+It can add a format code with "verb": \verb|code style|
+
+\vspace{10pt}
+
+With "verbatim" it can begin a code style without format. Verbatim allows you to write in the .tex file as it is in the code, respecting spaces, lines and tabs:
+
+\begin{verbatim}
+import numpy as np
+import matplotlib.pyplot as plt
+
+for i in range 10:
+    print(i)
+\end{verbatim}
+
+\vspace{10pt}
+
+With "lstlisting" it can create a format for add to code to text:
+
+Code in Python:
+
+\begin{lstlisting}[language = Python, caption = {Code in Python}, style = python_style]
+# Code in LaTeX           
+import numpy as np
+import matplotlib.pyplot as plt
+
+celsius = np.array([-40,-10,0,8,15,22,38], dtype = float)
+fahrenheit = np.array([-40,14,32,46,59,72,100], dtype = float)
+
+for i in range(0,len(celsius)):
+    print(f'{celsius[i]} °C = {fahrenheit[i]} °F')
+    
+\end{lstlisting}
+
+Code in Java:
+
+\begin{lstlisting}[style=java_style, caption={Code in Java}]
+package com.Notas;
+public class Principal {
+    public static void main(String[] args) {
+        VentanaPrincipal ventana_principal = new VentanaPrincipal();
+        ventana_principal.setVisible(true);
+    }
+}
+\end{lstlisting}
+
+\end{document}
